@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
 
+    private float playerInput;
     public float jumpForce = 10;
+    public float movementSpeedMutiplyer = 2;
     public float gravityModefyer;
     public bool isOnGround = true;
     public bool hasNotDoubleJumped = true;
@@ -49,6 +52,44 @@ public class PlayerController : MonoBehaviour
             {
                 hasNotDoubleJumped = false;
             }
+        }
+        // If the player presses space during game over restart the game
+        else if(Input.GetKeyDown(KeyCode.Space) && gameOver)
+        {
+            SceneManager.LoadScene("Prototype 3");
+            // Reset gravity to previous value to stop exponential gravity increase
+            Physics.gravity /= gravityModefyer;
+        }
+
+        // Only receve the player input when the player is on the ground
+        // This way the player cant change the speed mid jump
+        if(isOnGround)
+        {
+            playerInput = Input.GetAxis("Horizontal");
+        }
+
+        // Change the speed of the game depending on the players input
+        movementSpeedMutiplyer = 2 + playerInput;
+
+        // Change the running animation to walking when the player slows down
+        if(movementSpeedMutiplyer < 1.5f)
+        {
+            playerAnim.SetFloat("Speed_f", 0.4f);
+            dirtParticle.Stop();
+        }
+        else if(movementSpeedMutiplyer > 1.5f)
+        {
+            playerAnim.SetFloat("Speed_f", 1.0f);
+        }
+
+        // Increase the speed of the running animation when the playe speeds up
+        if(movementSpeedMutiplyer > 2.5f)
+        {
+            playerAnim.speed = 2;
+        }
+        else if(movementSpeedMutiplyer < 2.5f)
+        {
+            playerAnim.speed = 1;
         }
     }
 

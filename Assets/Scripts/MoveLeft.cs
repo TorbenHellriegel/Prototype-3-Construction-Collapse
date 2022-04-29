@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 20;
+    private float speed = 10;
     private float leftBoundry = -10;
 
     public PlayerController PlayerControllerScript;
@@ -21,7 +21,7 @@ public class MoveLeft : MonoBehaviour
         // Moves left as long as the game isnt over
         if(PlayerControllerScript.gameOver == false)
         {
-            transform.Translate(Vector3.left  * Time.deltaTime * speed);
+            transform.Translate(Vector3.left  * Time.deltaTime * speed * PlayerControllerScript.movementSpeedMutiplyer);
         }
         
         // Destroy the game object when it falls below the grond
