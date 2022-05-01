@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem dirtParticle;
     public AudioClip jumpSound;
     public AudioClip crashSound;
+    public ScoreManager scoreManager;
 
     private float playerInput;
     public float jumpForce = 10;
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
         {
             playerAnim.SetFloat("Speed_f", 0.4f);
             dirtParticle.Stop();
+            // Decrease the score when the player runs too slow
+            scoreManager.AddScore(-Time.deltaTime*10);
         }
         else if(movementSpeedMutiplyer > 1.5f)
         {
@@ -86,6 +89,8 @@ public class PlayerController : MonoBehaviour
         if(movementSpeedMutiplyer > 2.5f)
         {
             playerAnim.speed = 2;
+            // Decrease the score when the player runs too slow
+            scoreManager.AddScore(Time.deltaTime*10);
         }
         else if(movementSpeedMutiplyer < 2.5f)
         {
@@ -106,7 +111,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         // If the player hits an obstacle set game over true and trigger death animation
-        else if(collision.gameObject.CompareTag("Obstacle"))
+        else if(collision.gameObject.CompareTag("Obstacle") && gameOver == false)
         {
             gameOver = true;
             playerAnim.SetInteger("DeathType_int", 1);
@@ -114,6 +119,7 @@ public class PlayerController : MonoBehaviour
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            scoreManager.GameOverScore();
         }
     }
 }
