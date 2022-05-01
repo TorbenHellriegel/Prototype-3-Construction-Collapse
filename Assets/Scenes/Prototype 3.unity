@@ -531,6 +531,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1438565936, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4356800953600124292, guid: fb82dfb8d1c7044c69afd2486befecb3, type: 3}
       propertyPath: m_Name
       value: FX_DirtSplatter
@@ -817,7 +821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 70ab0d3e71b54ac4bbd703cb0a686c4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 70ab0d3e71b54ac4bbd703cb0a686c4d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1046,6 +1050,22 @@ MonoBehaviour:
   - {fileID: 8908565831901196934, guid: fce032efd503d0a43881e5ca2308eeb9, type: 3}
   - {fileID: 2166079036050908774, guid: 9aed5529bd4fc7e4cb610b53f855e529, type: 3}
   - {fileID: 7284949470508689727, guid: e04413c3f85cda144b5428764f167847, type: 3}
+  debrisPrefabs:
+  - {fileID: 4997303878883375612, guid: 81df5c2d086cd24498f7e27717d056f9, type: 3}
+  - {fileID: 4202900755563905117, guid: b7f21b3787e31ee4e8cb1377b94460d4, type: 3}
+  - {fileID: 4347056367810718945, guid: 3585b7857e9748e4d85fd6a70453d688, type: 3}
+  - {fileID: 3530507207835136211, guid: 33144815497f02a4ba73e80f6c437d93, type: 3}
+  - {fileID: 6751557092462496394, guid: 569c85b2c7d78ae4eb750404e049bb5c, type: 3}
+  - {fileID: 3636998790213081401, guid: 64d1fecf86fc6b54d88e8abf0f52c209, type: 3}
+  - {fileID: 2742641042691486046, guid: a924d6e7e0170cc4e87454b223c206ae, type: 3}
+  - {fileID: 2383205610658781478, guid: bded97c222440024da4212ab463e2f2e, type: 3}
+  - {fileID: 7787801942356895071, guid: c8123b53728825645921228da66d6d5a, type: 3}
+  - {fileID: 3530507207835136211, guid: 33144815497f02a4ba73e80f6c437d93, type: 3}
+  - {fileID: 6751557092462496394, guid: 569c85b2c7d78ae4eb750404e049bb5c, type: 3}
+  - {fileID: 3636998790213081401, guid: 64d1fecf86fc6b54d88e8abf0f52c209, type: 3}
+  - {fileID: 2742641042691486046, guid: a924d6e7e0170cc4e87454b223c206ae, type: 3}
+  - {fileID: 2383205610658781478, guid: bded97c222440024da4212ab463e2f2e, type: 3}
+  - {fileID: 7787801942356895071, guid: c8123b53728825645921228da66d6d5a, type: 3}
   PlayerControllerScript: {fileID: 0}
 --- !u!4 &1293872682
 Transform:

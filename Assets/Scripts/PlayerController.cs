@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10;
     public float movementSpeedMutiplyer = 2;
     public float gravityModefyer;
-    public bool isOnGround = true;
+    public bool isOnGround;
     public bool hasNotDoubleJumped = true;
     public bool gameOver;
 
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
         Physics.gravity *= gravityModefyer;
+        isOnGround = false;
     }
 
     // Update is called once per frame
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         // If the player hits the ground again restore both jumps
         if(collision.gameObject.CompareTag("Ground"))
         {
+            playerAnim.SetBool("Grounded", true);
             isOnGround = true;
             hasNotDoubleJumped = true;
             if(gameOver == false)
